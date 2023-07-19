@@ -1,0 +1,17 @@
+form label {
+    display: block;
+    font-size: 1rem;
+}
+
+form input {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.425rem;
+    width: 60%;
+
+}
+
+form input:focus {
+    outline: none;
+    /* outline-color: blue; */
+}

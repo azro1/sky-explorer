@@ -58,3 +58,18 @@
     font-family: 'Josefin Sans';
     font-weight: 300;
 }
+
+.wrapper {
+    min-width: 40vw;
+    text-align: center;
+    padding: 1rem;
+    /* background: pink; */
+}
+
+h1 {
+    padding: 0 0 1rem;
+    letter-spacing: 0.1rem;
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+}
+
