@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* self-hosted styles */
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./fonts/JosefinSans-Light.woff2') format('woff2'),
+        url('./fonts/JosefinSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./fonts/JosefinSans-Medium.woff2') format('woff2'),
+        url('./fonts/JosefinSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./fonts/JosefinSans-Thin.woff2') format('woff2'),
+        url('./fonts/JosefinSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./fonts/JosefinSans-Regular.woff2') format('woff2'),
+        url('./fonts/JosefinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./fonts/JosefinSans-Bold.woff2') format('woff2'),
+        url('./fonts/JosefinSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Josefin Sans';
+    font-weight: 300;
 }
