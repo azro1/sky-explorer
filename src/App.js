@@ -16,7 +16,7 @@ console.log(city)
       const data = await response.json()
       setCity(data)
     }
-    // cityWeather()
+    cityWeather()
 }, [])
 
   return (
