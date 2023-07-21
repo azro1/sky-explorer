@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import AddCity from './components/AddCity';
 import Card from './components/Card';
@@ -7,17 +7,15 @@ import Card from './components/Card';
 function App() {
 const [city, setCity] = useState([])
 
-console.log(city)
 
-  useEffect(() => {
     // get weather from server
-    const cityWeather = async () => {
-      const response = await fetch("http://localhost:8000/city-conditions")
+    const getCityWeather = async () => {
+      const response = await fetch("http://localhost:8000/city")
       const data = await response.json()
-      setCity(data)
+      console.log(data)
     }
-    cityWeather()
-}, [])
+    getCityWeather()
+
 
   return (
     <div className="wrapper">
