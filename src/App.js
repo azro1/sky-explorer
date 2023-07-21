@@ -1,20 +1,23 @@
-import { useState } from 'react';
 import './App.css';
 import AddCity from './components/AddCity';
 import Card from './components/Card';
 
 
 function App() {
-const [city, setCity] = useState([])
 
 
     // get weather from server
     const getCityWeather = async () => {
-      const response = await fetch("http://localhost:8000/city")
+      const response = await fetch("http://localhost:8000/city", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
+      })
       const data = await response.json()
       console.log(data)
     }
-    getCityWeather()
 
 
   return (
