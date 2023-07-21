@@ -14,6 +14,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 
+
+// get request that receives route parameter from front-end
+app.get('/weather/:city', (req, res) => {
+    console.log(req.params)
+})
+
+
+
+
+// post request that receives user input from front-end
 app.post('/city', (req, res) => {
     const { city } = req.body;
 
