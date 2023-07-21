@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import './AddCity.css'
 
-const AddCity = () => {
+const AddCity = ({ getCityWeather }) => {
   const [city, setCity] = useState('')
-  console.log(city)
 
   return (
-    <form autoComplete='off'>
+    <form autoComplete='off' onSubmit={(e) => {
+      e.preventDefault()
+      getCityWeather(city)
+    }}>
         <label>Enter a city to get up-to-date weather information
             <input type="text" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
         </label>
-        {city}
     </form>
   )
 }
