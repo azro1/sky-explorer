@@ -17,18 +17,20 @@ app.use(bodyParser.json())
 
 // get request that receives route parameter from front-end
 app.get('/weather/:city', (req, res) => {
-    console.log(req.params)
+    const { city } = req.params;
+    
+    getCity(city)
+    // return the call to getWeather function directly here and pass in the Key property on the data object as the argument
+    .then(data => getWeather(data.Key))
+    .then((data) => res.send(data))
+    .catch(err => console.log(err))
 })
-
-
-
 
 // post request that receives user input from front-end
 app.post('/city', (req, res) => {
     const { city } = req.body;
 
     getCity(city)
-    // return the call to getWeather function directly here and pass in the Key property on the data object as the argument
     .then(data => res.send(data))
     .catch(err => console.log(err))
 })
