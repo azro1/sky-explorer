@@ -4,16 +4,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const { getCity, getWeather } = require('./utils/weather')
 
-
 const app = express()
 app.use(cors())
-
 
 // // need body parser to parse form data into request body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
-
-
 
 // get request that receives route parameter from front-end
 app.get('/weather/:city', (req, res) => {
@@ -34,7 +30,6 @@ app.post('/city', (req, res) => {
     .then(data => res.send(data))
     .catch(err => console.log(err))
 })
-
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`))
 

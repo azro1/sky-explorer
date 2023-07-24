@@ -1,75 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* self-hosted styles */
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('./fonts/JosefinSans-Light.woff2') format('woff2'),
-        url('./fonts/JosefinSans-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('./fonts/JosefinSans-Medium.woff2') format('woff2'),
-        url('./fonts/JosefinSans-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('./fonts/JosefinSans-Thin.woff2') format('woff2'),
-        url('./fonts/JosefinSans-Thin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('./fonts/JosefinSans-Regular.woff2') format('woff2'),
-        url('./fonts/JosefinSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Josefin Sans';
-    src: url('./fonts/JosefinSans-Bold.woff2') format('woff2'),
-        url('./fonts/JosefinSans-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-#root {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: 'Josefin Sans';
-    font-weight: 300;
-}
-
 .wrapper {
-    min-width: 40vw;
+    max-width: 50rem;
     text-align: center;
     padding: 1rem;
     /* background: pink; */
 }
 
-h1 {
+.wrapper h1 {
     padding: 0 0 1rem;
     letter-spacing: 0.1rem;
-    font-family: 'Josefin Sans';
+    font-family: 'Titan One';
     font-weight: 400;
 }
-

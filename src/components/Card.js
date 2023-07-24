@@ -1,17 +1,21 @@
 import './Card.css'
 
-const Card = () => {
+const Card = ({ userCity, cityWeather }) => {
+
+  console.log(userCity)
+  console.log(cityWeather)
+
   return (
-    <div className="card">
-        <img src="https://placehold.co/250x150/png" className="time" alt="" />
+    <div className={`card ${userCity ? "open" : ""}`}>
+        <img src={cityWeather.IsDayTime ? './img/day.svg' : './img/night.jpg'} className="time" alt="" />
         <div className="icon">
-            {/* icon */}
+            <img src={`./img/icons/${cityWeather.WeatherIcon}.svg`} alt="icon" />
         </div>
-        <div className="details">
-            <h4>City Name</h4>
-            <div className="condition">Weather condition</div>
+        <div className={`details ${!cityWeather.IsDayTime ? 'night-text' : ''}`}>
+            <h2>{userCity.EnglishName}</h2>
+            <div className="condition">{cityWeather.WeatherText}</div>
             <div className="temp">
-                <span>temp</span>
+                <span>{cityWeather.Temperature.Metric.Value}</span>
                 <span>&deg;C</span>
             </div>
         </div>
