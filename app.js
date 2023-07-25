@@ -1,4 +1,4 @@
-const PORT = 8000;
+const port = process.env.PORT || 8000;
 const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors')
@@ -49,5 +49,5 @@ app.post('/city', (req, res) => {
     })
 })
 
-app.listen(PORT, () => console.log(`server is running on port ${PORT}`))
+app.listen(port, () => console.log(`server is running on port ${port}`))
 
