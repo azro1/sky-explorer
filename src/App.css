@@ -11,3 +11,7 @@
     font-family: 'Titan One';
     font-weight: 400;
 }
+
+.wrapper p {
+    color: red;
+}

@@ -1,13 +1,10 @@
 import './Card.css'
 
-const Card = ({ userCity, cityWeather }) => {
-
-  console.log(userCity)
-  console.log(cityWeather)
+const Card = ({ userCity, cityWeather, errors }) => {
 
   return (
-    <div className={`card ${userCity ? "open" : ""}`}>
-        <img src={cityWeather.IsDayTime ? './img/day.svg' : './img/night.jpg'} className="time" alt="" />
+    <div className={`card ${userCity ? "open" : ""} ${errors ? "close" : ""}`}>
+        <img src={cityWeather.IsDayTime ? './img/day.jpg' : './img/night.jpg'} className="time" alt="" />
         <div className="icon">
             <img src={`./img/icons/${cityWeather.WeatherIcon}.svg`} alt="icon" />
         </div>

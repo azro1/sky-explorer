@@ -11,24 +11,42 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
+
+
+
+
+
 // get request that receives route parameter from front-end
 app.get('/weather/:city', (req, res) => {
     const { city } = req.params;
     
     getCity(city)
-    // return the call to getWeather function directly here and pass in the Key property on the data object as the argument
     .then(data => getWeather(data.Key))
     .then((data) => res.send(data))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.message))
 })
+
+
+
+
+
 
 // post request that receives user input from front-end
 app.post('/city', (req, res) => {
     const { city } = req.body;
 
     getCity(city)
-    .then(data => res.send(data))
-    .catch(err => console.log(err))
+    .then(data => {
+        // initial request to api after promise is returned we check for data object if undefined throw custom error
+        if (data === undefined) {
+            throw new Error('Could not fetch data.')
+        }
+        res.send(data)
+    })
+    // which is caught here and send to front-end along with a status of 404 Not Found
+    .catch(err => {
+        return res.status(404).json({msg: err.message})
+    })
 })
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`))

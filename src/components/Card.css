@@ -10,6 +10,10 @@
     display: block;
 }
 
+.card.close {
+    display: none;
+}
+
 .card .time {
     width: 100%;
     display: block;
@@ -23,7 +27,7 @@
 }
 
 .card .icon img {
-    background: #E0FFFF;
+    background: #E6E6FA;
     border-radius: 50%;
     position: absolute;
     top: -6.25rem;
