@@ -57,7 +57,7 @@ function App() {
        <AddCity getCityWeather={getCityWeather} />
        {cityWeather && <Card userCity={userCity} cityWeather={cityWeather} errors={errors} />}
        {errors && <p>{errors}</p>}
-       {cityWeather && <Credits cityWeather={cityWeather} />}
+       {cityWeather && <Credits cityWeather={cityWeather} errors={errors} />}
     </div>
   );
 }

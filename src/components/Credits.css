@@ -3,6 +3,10 @@
     padding-top: 0.625rem;
 }
 
+.credits.close {
+    display: none;
+}
+
 .credits a {
     text-decoration: none;
 }
