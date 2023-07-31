@@ -11,11 +11,6 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
-
-
-
-
-
 // get request that receives route parameter from front-end
 app.get('/weather/:city', (req, res) => {
     const { city } = req.params;
@@ -25,11 +20,6 @@ app.get('/weather/:city', (req, res) => {
     .then((data) => res.send(data))
     .catch(err => console.log(err.message))
 })
-
-
-
-
-
 
 // post request that receives user input from front-end
 app.post('/city', (req, res) => {
