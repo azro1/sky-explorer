@@ -9,13 +9,18 @@ function App() {
   const [cityWeather, setCityWeather] = useState(null)
   const [errors, setErrors] = useState(null)
 
+
   // get weather from server
   const getCityWeather = async (city) => {
 
+
+
+
+
     // added try catch to handle server errors on front-end
     try {
-      // post city to back-end that user types in form input field
-      const res_1 = await fetch("http://localhost:8000/city", {
+      // fetch post to lambda function (getcity.js) to post city that user types in form input field
+      const res1 = await fetch("/.netlify/functions/getcity", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -23,27 +28,54 @@ function App() {
         body: JSON.stringify({city})
       })
       // grab error off json object sent from post route on server and use its value to throw new error to client
-      if (!res_1.ok) {
-        const error = await res_1.json()
+      if (!res1.ok) {
+        const error = await res1.json()
         throw new Error(error.msg)
       }
-      const newCity = await res_1.json()
-      setUserCity(newCity)
-    } catch (err) {
-        setErrors(err.message)
-    }
-
-    try {
-      // get request to send state route parameter to back-end
-      const res_2 = await fetch(`http://localhost:8000/weather/${city}`)
-      const newCityWeather = await res_2.json()
-      setCityWeather(newCityWeather)
+      const data = await res1.json()
+      // console.log(data)
+      const cityKey = data.city.Key;
       setErrors(null)
+      setUserCity(data)
+        
+
+
+
+        
+      // using city location key returned from first fetch to make subsequent post request to lambda function (getweather.js) to get weather conditions
+      const res2 = await fetch("/.netlify/functions/getweather", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({cityKey})
+      })
+      if (!res2.ok) {
+        const error = await res1.json()
+        throw new Error(error.msg)
+      } 
+        const location = await res2.json()
+        // console.log(location)
+        setErrors(null)
+        setCityWeather(location)
+    
+
+
+
+
     } catch (err) {
-        setErrors(err.message)
+        console.log('rejected:', err.message)
+        setErrors("Oh dear :( let's try that again..")
     }
 
   }
+
+
+
+
+
+
+
 
   return (
     <div className="wrapper">
