@@ -9,13 +9,8 @@ function App() {
   const [cityWeather, setCityWeather] = useState(null)
   const [errors, setErrors] = useState(null)
 
-
   // get weather from server
   const getCityWeather = async (city) => {
-
-
-
-
 
     // added try catch to handle server errors on front-end
     try {
@@ -38,10 +33,6 @@ function App() {
       setErrors(null)
       setUserCity(data)
         
-
-
-
-        
       // using city location key returned from first fetch to make subsequent post request to lambda function (getweather.js) to get weather conditions
       const res2 = await fetch("/.netlify/functions/getweather", {
         method: "POST",
@@ -58,10 +49,6 @@ function App() {
         // console.log(location)
         setErrors(null)
         setCityWeather(location)
-    
-
-
-
 
     } catch (err) {
         console.log('rejected:', err.message)
@@ -69,13 +56,6 @@ function App() {
     }
 
   }
-
-
-
-
-
-
-
 
   return (
     <div className="wrapper">
