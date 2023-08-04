@@ -2,7 +2,7 @@ require('dotenv').config();
 const key = process.env.REACT_APP_API_KEY;
    
 exports.handler = (event, context, callback) => {
-    const { cityKey } = JSON.parse(event.body);
+    let { cityKey } = JSON.parse(event.body);
 
     const getWeather = async (id) => {
         try {
