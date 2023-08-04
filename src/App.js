@@ -54,9 +54,7 @@ function App() {
         console.log('rejected:', err.message)
         setErrors("Oh dear :( let's try that again..")
     }
-
   }
-
   return (
     <div className="wrapper">
        <h1>Sky Explorer</h1>
