@@ -27,9 +27,9 @@ function App() {
         const error = await res1.json()
         throw new Error(error.msg)
       }
-      const data = await res1.json()
+      let data = await res1.json()
       // console.log(data)
-      const cityKey = data.city.Key;
+      let cityKey = data.city.Key;
       setErrors(null)
       setUserCity(data)
         
@@ -45,7 +45,7 @@ function App() {
         const error = await res1.json()
         throw new Error(error.msg)
       } 
-        const location = await res2.json()
+        let location = await res2.json()
         // console.log(location)
         setErrors(null)
         setCityWeather(location)

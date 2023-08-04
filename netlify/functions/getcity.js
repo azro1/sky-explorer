@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
 
             const cityResponse = await fetch(cityBaseUrl + cityQuery);
             const cityData = await cityResponse.json();
-            const city = cityData[0];
+            let city = cityData[0];
             
             callback(null, {
                 statusCode: 200, 

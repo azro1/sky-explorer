@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
             
             const weatherResponse = await fetch(baseUrl + query);
             const weatherData = await weatherResponse.json();
-            const weather = weatherData[0];
+            let weather = weatherData[0];
 
             callback(null, {
                 statusCode: 200,
