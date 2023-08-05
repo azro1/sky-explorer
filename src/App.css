@@ -10,9 +10,11 @@
     letter-spacing: 0.1rem;
     font-family: 'Titan One';
     font-weight: 400;
+    color: #fff;
+
 }
 
 .wrapper p {
     font-weight: 400;
-    color: red;
+    color: #fff;
 }

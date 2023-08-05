@@ -1,6 +1,8 @@
 form label {
     display: block;
     font-size: 1rem;
+    color: #fff;
+
 }
 
 form input {
@@ -10,6 +12,7 @@ form input {
     width: 100%;
     font-family: 'Courier', sans-serif;
     font-size: 1rem;
+    border: none;
 }
 
 form input:focus {

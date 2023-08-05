@@ -52,7 +52,7 @@ function App() {
 
     } catch (err) {
         console.log('rejected:', err.message)
-        setErrors("let's try that again .. 😒")
+        setErrors("oops, let's try that again .. 😒")
     }
   }
   return (
