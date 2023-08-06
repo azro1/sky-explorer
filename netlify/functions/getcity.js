@@ -2,7 +2,7 @@ require('dotenv').config();
 const key = process.env.REACT_APP_API_KEY;
 
 exports.handler = (event, context, callback) => {
-    let { city } = JSON.parse(event.body);
+    const { city } = JSON.parse(event.body);
 
     const getCity = async (location) => {
         try {
@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
 
             const cityResponse = await fetch(cityBaseUrl + cityQuery);
             const cityData = await cityResponse.json();
-            let city = cityData[0];
+            const city = cityData[0];
             
             callback(null, {
                 statusCode: 200, 

@@ -15,7 +15,7 @@ function App() {
     // added try catch to handle server errors on front-end
     try {
       // fetch post to lambda function (getcity.js) to post city that user types in form input field
-      const res1 = await fetch("/.netlify/functions/getcity", {
+      const cityResponse = await fetch("/.netlify/functions/getcity", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -23,32 +23,32 @@ function App() {
         body: JSON.stringify({city})
       })
       // grab error off json object sent from post route on server and use its value to throw new error to client
-      if (!res1.ok) {
-        const error = await res1.json()
+      if (!cityResponse.ok) {
+        const error = await cityResponse.json()
         throw new Error(error.msg)
       }
-      let data = await res1.json()
+      const cityData = await cityResponse.json()
       // console.log(data)
-      let cityKey = data.city.Key;
+      const cityKey = cityData.city.Key;
       setErrors(null)
-      setUserCity(data)
+      setUserCity(cityData)
         
       // using city location key returned from first fetch to make subsequent post request to lambda function (getweather.js) to get weather conditions
-      const res2 = await fetch("/.netlify/functions/getweather", {
+      const weatherResponse = await fetch("/.netlify/functions/getweather", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({cityKey})
       })
-      if (!res2.ok) {
-        const error = await res1.json()
+      if (!weatherResponse.ok) {
+        const error = await weatherResponse.json()
         throw new Error(error.msg)
       } 
-        let location = await res2.json()
+        const weatherData = await weatherResponse.json()
         // console.log(location)
         setErrors(null)
-        setCityWeather(location)
+        setCityWeather(weatherData)
 
     } catch (err) {
         console.log('rejected:', err.message)
