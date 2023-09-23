@@ -1,4 +1,4 @@
-# Sky Explorer
+# Sky Explorer ☔
 
 ## React weather app 
 
